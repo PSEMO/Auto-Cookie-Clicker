@@ -26,16 +26,17 @@ Building = [1750, 990]
 
 clickCount = 0
 
-while keyboard.is_pressed('q') != True:
-    click(cookiePos[0], cookiePos[1])
-    clickCount += 1
+while 1:
+    if keyboard.is_pressed('q') != True:
+        click(cookiePos[0], cookiePos[1])
+        clickCount += 1
 
-    if clickCount > 1500:#Works every once in a while.
-        clickCount = 0#Resets the "timer"
+        if clickCount > 1500:#Works every once in a while.
+            clickCount = 0#Resets the "timer"
 
-        goldenCookie = pyautogui.locateOnScreen('cookie.png')#Finds if golden one exists
-        if (goldenCookie != None):#Clicks on golden cookie and resets the var
-            click(goldenCookie.left, goldenCookie.top)
-            click(SugarLumpPos[0], SugarLumpPos[1])#Tries to harves a sugerlump
-            click(Building[0], Building[1])#Tries to Buy a building
+            goldenCookie = pyautogui.locateOnScreen('cookie.png')#Finds if golden one exists
+            if (goldenCookie != None):
+                click(SugarLumpPos[0], SugarLumpPos[1])#Tries to harves a sugerlump
+                click(Building[0], Building[1])#Tries to Buy a building
+                click(goldenCookie.left, goldenCookie.top)#Clicks on golden cookie
 #--------------------------------------------
