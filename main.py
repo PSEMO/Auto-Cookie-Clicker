@@ -18,23 +18,24 @@ def click(x,y):
 
 #--------------------------------------------
 
-clickCount = 0
 cookiePos = [300, 450]
 SugarLumpPos = [600, 130]
+Building = [1750, 990]
+
+#--------------------------------------------
+
+clickCount = 0
 
 while keyboard.is_pressed('q') != True:
     click(cookiePos[0], cookiePos[1])
     clickCount += 1
 
     if clickCount > 1500:#Works every once in a while.
-
-        click(SugarLumpPos[0], SugarLumpPos[1])#Clicks on sugerlump bc why not
+        clickCount = 0#Resets the "timer"
 
         goldenCookie = pyautogui.locateOnScreen('cookie.png')#Finds if golden one exists
         if (goldenCookie != None):#Clicks on golden cookie and resets the var
-            click(goldenCookie.left + 10, goldenCookie.top + 10)
-            goldenCookie = None
-
-        clickCount = 0#Resets the "timer"
-        
+            click(goldenCookie.left, goldenCookie.top)
+            click(SugarLumpPos[0], SugarLumpPos[1])#Tries to harves a sugerlump
+            click(Building[0], Building[1])#Tries to Buy a building
 #--------------------------------------------
